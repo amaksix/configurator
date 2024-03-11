@@ -18,14 +18,14 @@
         productName: "New Unity Project",
         productVersion: "0.1",
       }).then((unityInstance) => {
- window.unityInstance = unityInstance});
- window.addEventListener("message", function(event) {
-    // Check message type
-    if (event.data.type === "SendMessageToUnity") {
-        // Call Unity function with the message data
-        window.unityInstance.SendMessageToUnity();
-    }
-});
+    window.unityInstance = unityInstance});
+    window.addEventListener("message", function(event) {
+       // Check message type
+       if (event.data.type === "SendMessageToUnity") {
+           // Call Unity function with the message data
+           window.unityInstance.SendMessageToUnity();
+       }
+   });
     </script>
   </body>
 </html>
