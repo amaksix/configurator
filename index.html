@@ -23,7 +23,8 @@
        // Check message type
        if (event.data.type === "SendMessageToUnity") {
            // Call Unity function with the message data
-           window.unityInstance.SendMessageToUnity();
+           window.unityInstance.Module.asmLibraryArg.SendMessageToUnity();
+           //window.unityInstance.SendMessageToUnity();
        }
    });
     </script>
