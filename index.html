@@ -18,12 +18,14 @@
         productName: "New Unity Project",
         productVersion: "0.1",
       }).then((unityInstance) => {
-    window.unityInstance = unityInstance});
+    window.unityInstance = unityInstance;
+    console.log("Unity Instance", unityInstance);});
     window.addEventListener("message", function(event) {
        // Check message type
        if (event.data.type === "SendMessageToUnity") {
            // Call Unity function with the message data
-           window.unityInstance.Module.asmLibraryArg.SendMessageToUnity();
+          // window.unityInstance.Module.asmLibraryArg.SendMessageToUnity();
+          window.unityInstance.SendMessage('stops', 'MapFromJs');
            //window.unityInstance.SendMessageToUnity();
        }
    });
