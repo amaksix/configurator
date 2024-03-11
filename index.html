@@ -22,11 +22,14 @@
     console.log("Unity Instance", unityInstance);});
     window.addEventListener("message", function(event) {
        // Check message type
-       if (event.data.type === "SendMessageToUnity") {
-           // Call Unity function with the message data
-          // window.unityInstance.Module.asmLibraryArg.SendMessageToUnity();
+       if (event.data.type === "Map") {       
           window.unityInstance.SendMessage('stops', 'MapFromJs');
-           //window.unityInstance.SendMessageToUnity();
+       }
+       if (event.data.type === "ScreenButton") {
+          window.unityInstance.SendMessage('stops', 'ScreenFromJs');
+       }
+       if (event.data.type === "Silluete") {
+          window.unityInstance.SendMessage('stops', 'SillueteFromJs');
        }
    });
     </script>
