@@ -25,8 +25,20 @@
        if (event.data.type === "Map") {       
           window.unityInstance.SendMessage('stops', 'MapFromJs');
        }
-       if (event.data.type === "Screen") {
-          window.unityInstance.SendMessage('stops', 'ScreenFromJs');
+       if (event.data.type === "InnerScreen") {
+          window.unityInstance.SendMessage('stops', 'InnerScreenFromJs');
+       }
+       if (event.data.type === "OuterScreen") {
+          window.unityInstance.SendMessage('stops', 'OuterScreenFromJs');
+       }
+       if (event.data.type === "InnerSideScreen") {
+          window.unityInstance.SendMessage('stops', 'InnerSideScreenFromJs');
+       }
+       if (event.data.type === "OuterSideScreen") {
+          window.unityInstance.SendMessage('stops', 'OuterSideScreenFromJs');
+       }
+       if (event.data.type === "BusSchedule") {
+          window.unityInstance.SendMessage('stops', 'BusScheduleFromJs');
        }
        if (event.data.type === "Silluete") {
           window.unityInstance.SendMessage('stops', 'SillueteFromJs');
