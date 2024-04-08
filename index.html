@@ -54,34 +54,39 @@
       }
      
    });
-   window.addEventListener( "build", function(customEvent) {
-            console.log(messagesFromShopify);
-            for(let i =0; i<messagesFromShopify.length;i++)
-            {
-               if (event.data.type === "Map") {       
-               window.unityInstance.SendMessage('stops', 'MapFromJs');
-               }
-               if (event.data.type === "InnerScreen") {
-                  window.unityInstance.SendMessage('stops', 'InnerScreenFromJs');
-               }
-               if (event.data.type === "OuterScreen") {
-                  window.unityInstance.SendMessage('stops', 'OuterScreenFromJs');
-               }
-               if (event.data.type === "InnerSideScreen") {
-                  window.unityInstance.SendMessage('stops', 'InnerSideScreenFromJs');
-               }
-               if (event.data.type === "OuterSideScreen") {
-                  window.unityInstance.SendMessage('stops', 'OuterSideScreenFromJs');
-               }
-               if (event.data.type === "BusSchedule") {
-                  window.unityInstance.SendMessage('stops', 'BusScheduleFromJs');
-               }
-               if (event.data.type === "Silluete") {
-                  window.unityInstance.SendMessage('stops', 'SillueteFromJs');
-               }
-            }    
-         });
-
+   window.addEventListener("build", function(customEvent) {
+    console.log(messagesFromShopify);
+    for (let i = 0; i < messagesFromShopify.length; i++) {
+        const messageType = messagesFromShopify[i];
+        switch (messageType) {
+            case "Map":
+                window.unityInstance.SendMessage('stops', 'MapFromJs');
+                break;
+            case "InnerScreen":
+                window.unityInstance.SendMessage('stops', 'InnerScreenFromJs');
+                break;
+            case "OuterScreen":
+                window.unityInstance.SendMessage('stops', 'OuterScreenFromJs');
+                break;
+            case "InnerSideScreen":
+                window.unityInstance.SendMessage('stops', 'InnerSideScreenFromJs');
+                break;
+            case "OuterSideScreen":
+                window.unityInstance.SendMessage('stops', 'OuterSideScreenFromJs');
+                break;
+            case "BusSchedule":
+                window.unityInstance.SendMessage('stops', 'BusScheduleFromJs');
+                break;
+            case "Silluete":
+                window.unityInstance.SendMessage('stops', 'SillueteFromJs');
+                break;
+            // Add more cases for additional message types if needed
+            default:
+                // Handle unknown message types, if necessary
+                break;
+        }
+    }
+});
     </script>
   </body>
 </html>
