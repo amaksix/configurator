@@ -25,7 +25,7 @@
    });
     window.addEventListener("message", function(event) {
       if( window.unityInstance === undefined) {
-         elem.addEventListener( "build", function(customEvent) {
+         window.addEventListener( "build", function(customEvent) {
             if (event.data.type === "Map") {       
                window.unityInstance.SendMessage('stops', 'MapFromJs');
                }
