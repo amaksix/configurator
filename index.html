@@ -10,6 +10,7 @@
     <script src="Build/webGlBuild.loader.js"></script>
     <script>
       const eventCustom = new Event("build");
+      var messagesFromShopify = new Array();
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/webGlBuild.data",
         frameworkUrl: "Build/webGlBuild.framework.js",
@@ -25,29 +26,7 @@
    });
     window.addEventListener("message", function(event) {
       if( window.unityInstance === undefined) {
-         window.addEventListener( "build", function(customEvent) {
-            if (event.data.type === "Map") {       
-               window.unityInstance.SendMessage('stops', 'MapFromJs');
-               }
-               if (event.data.type === "InnerScreen") {
-                  window.unityInstance.SendMessage('stops', 'InnerScreenFromJs');
-               }
-               if (event.data.type === "OuterScreen") {
-                  window.unityInstance.SendMessage('stops', 'OuterScreenFromJs');
-               }
-               if (event.data.type === "InnerSideScreen") {
-                  window.unityInstance.SendMessage('stops', 'InnerSideScreenFromJs');
-               }
-               if (event.data.type === "OuterSideScreen") {
-                  window.unityInstance.SendMessage('stops', 'OuterSideScreenFromJs');
-               }
-               if (event.data.type === "BusSchedule") {
-                  window.unityInstance.SendMessage('stops', 'BusScheduleFromJs');
-               }
-               if (event.data.type === "Silluete") {
-                  window.unityInstance.SendMessage('stops', 'SillueteFromJs');
-               }
-         });
+        messagesFromShopify.push(event.data.type);
       }
       else
       {
@@ -75,6 +54,33 @@
       }
      
    });
+   window.addEventListener( "build", function(customEvent) {
+            console.log(messagesFromShopify);
+            for(let i =0; i<messagesFromShopify.length;i++)
+            {
+               if (event.data.type === "Map") {       
+               window.unityInstance.SendMessage('stops', 'MapFromJs');
+               }
+               if (event.data.type === "InnerScreen") {
+                  window.unityInstance.SendMessage('stops', 'InnerScreenFromJs');
+               }
+               if (event.data.type === "OuterScreen") {
+                  window.unityInstance.SendMessage('stops', 'OuterScreenFromJs');
+               }
+               if (event.data.type === "InnerSideScreen") {
+                  window.unityInstance.SendMessage('stops', 'InnerSideScreenFromJs');
+               }
+               if (event.data.type === "OuterSideScreen") {
+                  window.unityInstance.SendMessage('stops', 'OuterSideScreenFromJs');
+               }
+               if (event.data.type === "BusSchedule") {
+                  window.unityInstance.SendMessage('stops', 'BusScheduleFromJs');
+               }
+               if (event.data.type === "Silluete") {
+                  window.unityInstance.SendMessage('stops', 'SillueteFromJs');
+               }
+            }    
+         });
 
     </script>
   </body>
