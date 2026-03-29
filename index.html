@@ -17,13 +17,13 @@
           
           try {
               switch (type) {
-                  case "Map": window.unityInstance.SendMessage('oslo-s', 'MapFromJs', state); break;
-                  case "InnerScreen": window.unityInstance.SendMessage('oslo-s', 'InnerScreenFromJs', state); break;
-                  case "OuterScreen": window.unityInstance.SendMessage('oslo-s', 'OuterScreenFromJs', state); break;
-                  case "InnerSideScreen": window.unityInstance.SendMessage('oslo-s', 'InnerSideScreenFromJs', state); break;
-                  case "OuterSideScreen": window.unityInstance.SendMessage('oslo-s', 'OuterSideScreenFromJs', state); break;
-                  case "BusSchedule": window.unityInstance.SendMessage('oslo-s', 'BusScheduleFromJs', state); break;
-                  case "Silluete": window.unityInstance.SendMessage('oslo-s', 'SillueteFromJs', state); break;
+                  case "Map": window.unityInstance.SendMessage('stops', 'MapFromJs', state); break;
+                  case "InnerScreen": window.unityInstance.SendMessage('stops', 'InnerScreenFromJs', state); break;
+                  case "OuterScreen": window.unityInstance.SendMessage('stops', 'OuterScreenFromJs', state); break;
+                  case "InnerSideScreen": window.unityInstance.SendMessage('stops', 'InnerSideScreenFromJs', state); break;
+                  case "OuterSideScreen": window.unityInstance.SendMessage('stops', 'OuterSideScreenFromJs', state); break;
+                  case "BusSchedule": window.unityInstance.SendMessage('stops', 'BusScheduleFromJs', state); break;
+                  case "Silluete": window.unityInstance.SendMessage('stops', 'SillueteFromJs', state); break;
                   default: break;
               }
           } catch (error) {
